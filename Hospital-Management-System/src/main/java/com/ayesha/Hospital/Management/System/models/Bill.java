@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private long patientId;
     private double amount;
     private String Status;

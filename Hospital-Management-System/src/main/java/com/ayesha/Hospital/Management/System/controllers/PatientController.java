@@ -55,7 +55,6 @@ public class PatientController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePatientById(@PathVariable("id") long id) {
-        // Checking if patient exists before trying to delete (optional but good practice)
         Patient patient = patientService.getPatientById(id);
         if (patient != null) {
             patientService.deletePatientById(id);
