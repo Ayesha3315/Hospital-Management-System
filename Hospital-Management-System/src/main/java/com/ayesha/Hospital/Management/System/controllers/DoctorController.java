@@ -39,6 +39,7 @@ public class DoctorController {
     }
 
 
+    @SuppressWarnings("unused")
     @GetMapping("/{id}")
     public ResponseEntity<Doctor> findDoctorById(@PathVariable("id") long id) {
         Doctor doctor = doctorService.findDoctorById(id);
@@ -48,6 +49,8 @@ public class DoctorController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteDoctorById(@PathVariable("id") long id){
         Doctor doctor=doctorService.findDoctorById(id);
@@ -61,7 +64,7 @@ public class DoctorController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Doctor> updateDoctorById(@PathVariable("id") long id,Doctor updatedDoctor){
+    public ResponseEntity<Doctor> updateDoctorById(@PathVariable("id") long id,@RequestBody Doctor updatedDoctor){
         Doctor doctor=doctorService.findDoctorById(id);
         if(doctor!=null){
             doctorService.updatedDoctor(id,updatedDoctor);
